@@ -1,7 +1,7 @@
 <?php 
 	
 	//define("BASE_URL", "http://localhost/tienda_virtual/");
-	const BASE_URL = "https://abelosh.com/tienda_virtual/";
+	const BASE_URL = "http://localhost/GDM_REPORT/";
 
 	//Zona horaria
 	date_default_timezone_set('America/Peru');

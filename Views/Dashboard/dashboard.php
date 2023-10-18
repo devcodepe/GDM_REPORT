@@ -36,6 +36,9 @@
           <li class="nav-item d-none d-sm-inline-block">
             <a href="#" class="nav-link">Contact</a>
           </li>
+          <li class="nav-item d-none d-sm-inline-block">
+            <a href="<?= base_url();  ?>logout" class="nav-link">Logout</a>
+          </li>
         </ul>
 
         <!-- Right navbar links -->
@@ -236,7 +239,7 @@
               />
             </div>
             <div class="info">
-              <a href="#" class="d-block">Joans Osorio</a>
+              <a href="#" class="d-block"><?= $_SESSION['userData']['nombre'];?></a>
             </div>
           </div>
 
@@ -967,6 +970,7 @@
             </div>
             <div class="card-body">
               Start creating your amazing application!
+              <?php dep($_SESSION['userData']); ?>
             </div>
             <!-- /.card-body -->
             <div class="card-footer">Footer</div>
