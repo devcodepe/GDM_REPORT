@@ -21,7 +21,10 @@
     <script src="Assets/css/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="Assets/css/dist/js/adminlte.min.js"></script>
+    <script src="Assets/js/fontawesome.js"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="Assets/css/dist/js/demo.js"></script>
+    <script src="Assets/js/functions_modals.js"></script>
+
   </body>
 </html>

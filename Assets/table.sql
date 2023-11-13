@@ -8,3 +8,10 @@ CREATE TABLE persona(
     statuss     int(11)         NOT NULL
 
 )
+
+CREATE TABLE rol(
+	idrol       INT             AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    nombrerol   varchar(30)     NOT NULL,
+    descripcion varchar(255),
+    statusrol   int NOT NULL
+)
