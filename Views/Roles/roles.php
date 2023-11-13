@@ -1,5 +1,4 @@
-
-      <?php headerAdmin($data) ?>
+<?php headerAdmin($data) ?>
 
       
 
