@@ -17,6 +17,13 @@
     />
     <!-- Theme style -->
     <link rel="stylesheet" href="Assets/css/dashboard/css/adminlte.css" />
+    <style>
+      #roltable_filter {
+        display: flex;
+        justify-content:end;
+          
+      }
+    </style>
   </head>
   <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->
@@ -85,7 +92,7 @@
                     <i class="fa fa-user mr-2" aria-hidden="true"></i> My Perfil
                 </a>
               <div class="dropdown-divider"></div>
-                <a href="#" class="dropdown-item">
+                <a href="<?= base_url(); ?>/logout" class="dropdown-item">
                     <i class="fa fa-power-off mr-2" aria-hidden="true"></i>  Logout
             
                 </a>

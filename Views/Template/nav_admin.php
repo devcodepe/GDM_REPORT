@@ -23,7 +23,7 @@
               />
             </div>
             <div class="info">
-              <a href="#" class="d-block"><?= $_SESSION['userData']['nombre'];?></a>
+              <a href="#" class="d-block"><?= $_SESSION['userData']['nombres'];?></a>
             </div>
           </div>
 
