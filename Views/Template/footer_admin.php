@@ -24,7 +24,7 @@
     <!-- jQuery -->
     <script src="<?= media(); ?>js/jquery-3.3.1.min.js"></script>
     <script src="<?= media(); ?>css/plugins/jquery/jquery.min.js"></script>
-    <script src="<?= media(); ?>js/popper.min.js"></script>
+    <script src="<?= media(); ?>js/sweetalert.min.js"></script>
 
     <!-- Bootstrap 4 -->
     <script src="<?= media(); ?>js/bootstrap.min.js"></script>
@@ -46,6 +46,8 @@
     <script src="<?= media(); ?>js/plugins/jszip/jszip.min.js"></script>
     <script src="<?= media(); ?>js/plugins/pdfmake/pdfmake.min.js"></script>
     <script src="<?= media(); ?>js/plugins/pdfmake/vfs_fonts.js"></script>
+
+
     
 
     <script>

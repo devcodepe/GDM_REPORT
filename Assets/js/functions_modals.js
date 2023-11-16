@@ -2,7 +2,7 @@ var tableRoles;
 document.addEventListener('DOMContentLoaded', function(){
 
     tableRoles = $('#roltable').DataTable ({
-        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "responsive": true, "lengthChange": true, "autoWidth": false,
         "aProcessing":true,
         "aServerSide":true,
         "language": {
@@ -39,10 +39,63 @@ document.addEventListener('DOMContentLoaded', function(){
         swal("Atencion","Todo los campos son obligatorios", "error");
         return false;
       }
+
+      var request = (window.XMLHttpRequest) ? new XMLHttpRequest : new ActiveXObject('Microsoft.XMLHTTP');
+      var ajaxUrl = base_url+'Roles/setRoles';
+      var formData = new FormData(formRol);
+      request.open("POST", ajaxUrl, true);
+      request.send(formData);
+      request.onreadystatechange = function(){
+        if (request.readyState == 4 && request.status == 200)
+        {
+          var objData = JSON.parse(request.responseText);
+          if (objData.status)
+          {
+            $('#modalFormRol').modal("hide");
+            formRol.reset();
+            swal("Roles de Usuario",objData.msg,"success");
+            tableRoles.ajax.reload(function() {
+              
+            });
+            
+          }
+          else
+          {
+            swal("Error", objData.msg, "error");
+          }
+        }
+      }
     }
 }); 
 
 
 function openModal(){
+    document.querySelector('#idrol').value="";
+    document.querySelector('#titleModal').innerHTML="Nuevo Rol";
+    document.querySelector('.modal-header').classList.replace("headerUpdate","headerRegister");
+    document.querySelector('#btnActionForm').classList.replace("btn-info","btn-primary");
+    document.querySelector('#btnText').innerHTML="Guardar";
+    document.querySelector("#formRol").reset();
+
     $('#modalFormRol').modal('show');
+}
+
+window.addEventListener('load', function(){
+  fntEditRol();
+}, true);
+
+
+function fntEditRol(){
+  var btnEditRol = document.querySelectorAll('.btnEditRol');
+  btnEditRol.forEach(function(btnEditRol){
+    btnEditRol.addEventListener('click',function(){
+      
+    document.querySelector('#titleModal').innerHTML="Actualizar Rol";
+      document.querySelector('.modal-header').classList.replace("headerRegister","headerUpdate");
+      document.querySelector('#btnActionForm').classList.replace("btn-primary","btn-info");
+      document.querySelector('#btnText').innerHTML="Actualizar";
+
+      $('#modalFormRol').modal('show');
+    });
+  });
 }
