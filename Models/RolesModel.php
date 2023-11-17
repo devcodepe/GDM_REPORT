@@ -19,6 +19,14 @@
             return $request;
         }
 
+        public function selectRol(int $idrol)
+        {
+            $this->intIdrol = $idrol;
+            $sql = "SELECT * FROM rol WHERE idrol = $this->intIdrol";
+            $request = $this->select($sql);
+            return $request;
+        }
+
         public function insertRol(string $rol, string $description, int $status)
         {
             $return = "";
@@ -41,6 +49,58 @@
             }
 
             return $return;
+        }
+
+        public function updateRol(int $idrol, string $name, string $description, int $status)
+        {
+            $this->intIdrol = $idrol;
+            $this->strRol = $name;
+            $this->strDescription = $description;
+            $this->intStatus = $status;
+
+            $sql = "SELECT * FROM rol WHERE nombrerol = '$this->strRol' and idrol != $this->intIdrol";
+            $request = $this->select_all($sql);
+
+            if (empty($request))
+            {
+                $sql = "UPDATE rol SET nombrerol = ? , descripcion = ?, statusrol = ? WHERE idrol = $this->intIdrol";
+                $arrData = array($this->strRol, $this->strDescription, $this->intStatus);   
+                $request = $this->update($sql,$arrData);
+            }
+            else
+            {
+                $request = "exist";
+            }
+
+            return $request;
+        }
+
+        public function deleteRol(int $idrol)
+        {
+            $this->intIdrol = $idrol;
+            $sql = "SELECT * FROM persona WHERE rolid = $this->intIdrol";
+            $request = $this->select_all($sql);
+            if(empty($request))
+            {
+                $sql = "UPDATE rol SET statusrol = ? WHERE idrol = $this->intIdrol";
+                $arrData = array(0);
+                $request = $this->update($sql,$arrData);
+                
+                if ($request)
+                {
+                    $request = 'ok';
+                }
+                else
+                {
+                    $request = 'error';
+                }
+            }
+            else
+            {
+                $request = 'exist';
+            }
+
+            return $request;
         }
     }
 

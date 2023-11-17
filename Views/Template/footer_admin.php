@@ -50,11 +50,7 @@
 
     
 
-    <script>
 
-          
-
-    </script>
     <script src="<?= media(); ?>js/functions_modals.js"></script>
 
   </body>

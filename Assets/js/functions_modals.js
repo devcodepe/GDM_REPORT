@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function(){
     formRol.onsubmit = function(e){
       e.preventDefault();
 
+      var intIdrol = document.querySelector('#idrol').value;
       var strName =  document.querySelector('#txtName').value;
       var strDescription = document.querySelector('#txtDescription').value;
       var intStatus = document.querySelector('#listStatus');
@@ -81,21 +82,97 @@ function openModal(){
 }
 
 window.addEventListener('load', function(){
-  fntEditRol();
-}, true);
+  //fntEditRol();
+  //fntDelRol();
+}, false);
 
 
-function fntEditRol(){
-  var btnEditRol = document.querySelectorAll('.btnEditRol');
-  btnEditRol.forEach(function(btnEditRol){
-    btnEditRol.addEventListener('click',function(){
-      
-    document.querySelector('#titleModal').innerHTML="Actualizar Rol";
-      document.querySelector('.modal-header').classList.replace("headerRegister","headerUpdate");
-      document.querySelector('#btnActionForm').classList.replace("btn-primary","btn-info");
-      document.querySelector('#btnText').innerHTML="Actualizar";
+function fntEditRol($idrol){
+  
+  document.querySelector('#titleModal').innerHTML="Actualizar Rol";
+  document.querySelector('.modal-header').classList.replace("headerRegister","headerUpdate");
+  document.querySelector('#btnActionForm').classList.replace("btn-primary","btn-info");
+  document.querySelector('#btnText').innerHTML="Actualizar";
 
-      $('#modalFormRol').modal('show');
-    });
-  });
+  var idrol = $idrol;
+  var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+  var ajaxUrl = base_url+'Roles/getRol/'+idrol;
+  request.open("GET",ajaxUrl,true);
+  request.send();
+
+  request.onreadystatechange = function(){
+    if (request.readyState == 4 && request.status == 200)
+    {
+      console.log(request.responseText);
+      var objData = JSON.parse(request.responseText);
+      console.log(objData.data.idrol);
+
+      if (objData.status)
+      {
+          document.querySelector("#idrol").value = objData.data.idrol;
+          document.querySelector("#txtName").value = objData.data.nombrerol;
+          document.querySelector("#txtDescription").value = objData.data.descripcion;
+
+          if (objData.data.statusrol == 1)
+          {
+            var optionSelect = '<option value="1" selected class="notBlock">Activo</option>';
+          }
+          else
+          {
+            var optionSelect = '<option value="2" selected class="notBlock">Inactivo</option>';
+          }
+
+          var htmlSelect = `${optionSelect}
+                            <option value="1">Activo</option>
+                            <option value="2">Inactivo</option>
+                            `;
+          document.querySelector("#listStatus").innerHTML = htmlSelect;
+          $('#modalFormRol').modal('show');
+      }
+      else{
+        swal("Error", objData.msg, "error");
+      }
+    } 
+  }
+
 }
+
+function fntDelRol($idrol){
+  var idrol = $idrol;
+  swal({
+    title: "Eliminar Rol",
+    text: "¿Realmente quiere eliminar este Rol?",
+    icon: "warning",
+    buttons: ["No, cancelar","Si, eliminar"],
+    dangerMode: true,
+    
+}).then((willDelete) => {
+    if (willDelete) {
+        var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        var ajaxUrl = 'http://localhost/GDM_REPORT/Roles/deleteRol/';
+        var strData = "idrol="+idrol;
+        request.open("POST",ajaxUrl,true);
+        request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        request.send(strData);
+        request.onreadystatechange = function () {
+            if(request.readyState == 4 && request.status == 200){
+                var objData = JSON.parse(request.responseText);
+                if(objData.status)
+                {   
+                    swal("rol eliminado", objData.msg , "success");
+                    tableRoles.ajax.reload(function () {
+                        
+                    });
+                }else{
+                    swal("Atención!", objData.msg , "error");
+                }
+            }
+        }
+      
+    } 
+  });
+  
+}
+
+    
+
