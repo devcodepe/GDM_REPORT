@@ -174,5 +174,10 @@ function fntDelRol($idrol){
   
 }
 
+function fntPermisosRoles($idrol)
+{
+  $('.modalPermisos').modal('show');
+}
+
     
 
