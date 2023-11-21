@@ -176,7 +176,50 @@ function fntDelRol($idrol){
 
 function fntPermisosRoles($idrol)
 {
-  $('.modalPermisos').modal('show');
+  var idrol = $idrol;
+  var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsft.XMLHTTP');
+  var ajaxUrl = base_url+'PermisosRoles/getPermisosRol/'+idrol;
+  request.open("GET",ajaxUrl,true);
+  request.send();
+  console.log(ajaxUrl);
+  request.onreadystatechange = function()
+  {
+    if (request.readyState == 4 && request.status == 200)
+    {
+      document.querySelector('#contentAjax').innerHTML = request.responseText;
+      $('.modalPermisos').modal('show');
+      document.querySelector('#formPermisos').addEventListener('submit', fntSavePermisos, false);
+
+    }
+  }
+  
+}
+
+function fntSavePermisos(event)
+{
+  event.preventDefault();
+  var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+  var ajaxUrl = base_url+'PermisosRoles/setPermisos';
+  var formElement = document.querySelector("#formPermisos");
+  var formData = new FormData(formElement);
+  request.open("POST", ajaxUrl, true);
+  request.send(formData);
+
+  request.onreadystatechange = function()
+  {
+    if (request.readyState == 4 && request.status == 200) 
+    {
+      var objData = JSON.parse(request.responseText);
+      if (objData.status)
+      {
+        swal("Permisos de Usuario", objData.msg, "success");
+      }
+      else
+      {
+        swal("Error", objData.msg, "error");
+      }
+    }
+  }
 }
 
     
