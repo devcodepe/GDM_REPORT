@@ -18,7 +18,7 @@
             $data['page_id'] = 3;
             $data['page_tag'] = "Roles de Usuario";
             $data['page_title'] = "Roles de Usuario";
-            $data['page_name'] = "Roles";
+            $data['page_name'] = "roles";
 
             $this->views->getView($this, "roles", $data);
         }

@@ -50,8 +50,11 @@
 
     
 
-
+    <?php if ($data['page_name'] == "roles") {?>
     <script src="<?= media(); ?>js/functions_modals.js"></script>
-
+    <?php } ?>
+    <?php if ($data['page_name'] == "usuario") {?>
+    <script src ="<?= media(); ?>js/function_usuarios.js"></script>
+    <?php } ?>
   </body>
 </html>
