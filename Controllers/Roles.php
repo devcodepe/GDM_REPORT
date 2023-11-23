@@ -23,6 +23,21 @@
             $this->views->getView($this, "roles", $data);
         }
 
+        public function getSelectRoles()
+        {
+            $htmlOptions = "";
+            $arrData = $this->model->selectRoles();
+            if (count($arrData) > 0) 
+            {
+                for ($i = 0; $i < count($arrData); $i++)
+                {
+                    $htmlOptions .= '<option value="'. $arrData[$i]['idrol'].'">'.$arrData[$i]['nombrerol'].'</option>';
+                }
+            }
+            echo $htmlOptions;
+
+        }
+
         public function getRoles()
         {
             $arrdata = $this->model->selectRoles();

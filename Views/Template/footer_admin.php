@@ -21,19 +21,29 @@
 
     </script>
 
-    <!-- jQuery -->
-    <script src="<?= media(); ?>js/jquery-3.3.1.min.js"></script>
-    <script src="<?= media(); ?>css/plugins/jquery/jquery.min.js"></script>
-    <script src="<?= media(); ?>js/sweetalert.min.js"></script>
+   <!-- jQuery -->
+<script src="<?= media(); ?>js/jquery-3.3.1.min.js"></script>
 
-    <!-- Bootstrap 4 -->
-    <script src="<?= media(); ?>js/bootstrap.min.js"></script>
-    <script src="<?= media(); ?>css/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="<?= media(); ?>css/dist/js/adminlte.min.js"></script>
-    <script src="<?= media(); ?>js/fontawesome.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="<?= media(); ?>css/dist/js/demo.js"></script>
+
+
+<!-- Bootstrap Bundle (incluye Popper.js) -->
+<script src="<?= media(); ?>css/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- SweetAlert -->
+<script src="<?= media(); ?>js/sweetalert.min.js"></script>
+
+<!-- Font Awesome -->
+<script src="<?= media(); ?>js/fontawesome.js"></script>
+
+<!-- Bootstrap Select -->
+<script src="<?= media(); ?>js/bootstrap-select.min.js"></script>
+
+<!-- AdminLTE App -->
+<script src="<?= media(); ?>css/dist/js/adminlte.min.js"></script>
+
+<!-- AdminLTE for demo purposes -->
+<script src="<?= media(); ?>css/dist/js/demo.js"></script>
+
 
 
    <!-- DataTables  & Plugins -->
@@ -48,7 +58,6 @@
     <script src="<?= media(); ?>js/plugins/pdfmake/vfs_fonts.js"></script>
 
 
-    
 
     <?php if ($data['page_name'] == "roles") {?>
     <script src="<?= media(); ?>js/functions_modals.js"></script>

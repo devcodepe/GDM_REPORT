@@ -33,7 +33,7 @@
               <div class="form-row">
                 <div class="form-group col-md-6">
                   <label for="listRolid">Tipo Usuario</label>
-                  <select class="form-control" id="listRolid" name="listRolid" require>
+                  <select class="form-control" data-live-search="true" id="listRolid" name="listRolid" require>
                   </select>
                 </div>
                 <div class="form-group col-md-6">

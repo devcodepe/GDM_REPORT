@@ -17,6 +17,7 @@
     />
     <!-- Theme style -->
     <link rel="stylesheet" href="Assets/css/dashboard/css/adminlte.css" />
+    <link rel="stylesheet" href="<?= media(); ?>css/bootstrap-select.min.css"/>
     <link rel="stylesheet" href="<?= media(); ?>css/style.css" />
 
     <style>
