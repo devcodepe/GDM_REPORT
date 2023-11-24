@@ -29,7 +29,26 @@ document.addEventListener('DOMContentLoaded', function ()
         {
             if (request.readyState == 4 && request.status == 200)
             {
+                var objData = JSON.parse(request.responseText);
 
+                if (objData.status)
+                {
+                    $('#modalFormUsuario').modal("hide");
+                    formUsuario.reset();
+                    swal("Usuario", objData.msg, "success");
+                    usuariotable.ajax.reload(function(){
+
+                    });
+
+                }
+                else
+                {
+                    swal("Error", objData.msg, "error");
+                }
+            }
+            else
+            {
+                console.log("error");
             }
         }
     }

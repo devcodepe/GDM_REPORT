@@ -37,13 +37,13 @@
                         {
                           $permisos = $modulos[$i]['permisos'];
                           $rCheck = $permisos['r'] == 1 ? " checked " : "";
-                          $valueCheck = $permisos['r'] == 1 ? " ON " : " OFF ";
-                          $rCheck = $permisos['w'] == 1 ? " checked " : "";
-                          $valueCheck = $permisos['w'] == 1 ? " ON " : " OFF ";
-                          $rCheck = $permisos['u'] == 1 ? " checked " : "";
-                          $valueCheck = $permisos['u'] == 1 ? " ON " : " OFF ";
-                          $rCheck = $permisos['d'] == 1 ? " checked " : "";
-                          $valueCheck = $permisos['d'] == 1 ? " ON " : " OFF ";
+                          $rvalueCheck = $permisos['r'] == 1 ? " ON " : " OFF ";
+                          $wCheck = $permisos['w'] == 1 ? " checked " : "";
+                          $wvalueCheck = $permisos['w'] == 1 ? " ON " : " OFF ";
+                          $uCheck = $permisos['u'] == 1 ? " checked " : "";
+                          $uvalueCheck = $permisos['u'] == 1 ? " ON " : " OFF ";
+                          $dCheck = $permisos['d'] == 1 ? " checked " : "";
+                          $dvalueCheck = $permisos['d'] == 1 ? " ON " : " OFF ";
 
 
                           $idmod = $modulos[$i]['idmodulo'];
@@ -54,16 +54,16 @@
                         </td> 
                         <td><?= $modulos[$i]['titulo']; ?></td>
                         <td>
-                          <input type="checkbox" name="modulos[<?= $i; ?>][r]" <?= $rCheck ?>> <?= $valueCheck ?>
+                          <input type="checkbox" name="modulos[<?= $i; ?>][r]" <?= $rCheck ?>> <?= $rvalueCheck ?>
                         </td>
                         <td>
-                          <input type="checkbox" name="modulos[<?= $i; ?>][w]" <?= $rCheck ?>> <?= $valueCheck ?>
+                          <input type="checkbox" name="modulos[<?= $i; ?>][w]" <?= $wCheck ?>> <?= $wvalueCheck ?>
                         </td>
                         <td>
-                          <input type="checkbox" name="modulos[<?= $i; ?>][u]" <?= $rCheck ?>> <?= $valueCheck ?>
+                          <input type="checkbox" name="modulos[<?= $i; ?>][u]" <?= $uCheck ?>> <?= $uvalueCheck ?>
                         </td>
                         <td>
-                          <input type="checkbox" name="modulos[<?= $i; ?>][d]" <?= $rCheck ?>> <?= $valueCheck ?>
+                          <input type="checkbox" name="modulos[<?= $i; ?>][d]" <?= $dCheck ?>> <?= $dvalueCheck ?>
                         </td>
                       </tr>
                       <?php  

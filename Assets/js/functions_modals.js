@@ -212,6 +212,7 @@ function fntSavePermisos(event)
       var objData = JSON.parse(request.responseText);
       if (objData.status)
       {
+        $('.modalPermisos').modal("hide");
         swal("Permisos de Usuario", objData.msg, "success");
       }
       else
