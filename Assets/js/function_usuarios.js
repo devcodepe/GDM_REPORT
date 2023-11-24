@@ -1,5 +1,34 @@
+var usuariotable;
 document.addEventListener('DOMContentLoaded', function () 
 {
+    usuariotable = $('#usuariotable').DataTable ({
+        "responsive": true, "lengthChange": true, "autoWidth": false,
+        "aProcessing":true,
+        "aServerSide":true,
+        "language": {
+          "url": "//cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json"
+        },
+        "ajax":{
+          "url": " "+base_url+"/Usuarios/getUsuarios",
+          "dataSrc":""
+        },
+        "columns":[
+          {"data":"idpersona"},
+          {"data":"identificacion"},
+          {"data":"nombres"},
+          {"data":"apellidos"},
+          {"data":"telefono"},
+          {"data":"nombrerol"},
+          {"data":"statuss"},
+          {"data":"options"}
+
+        ],
+        "resonsieve":"true",
+        "bDestroy":true,
+        "iDisplayLength":10,
+        "order":[[0,"desc"]]
+    });
+
     var formUsuario = document.querySelector('#formUsuario');
     formUsuario.onsubmit = function(e)
     {

@@ -77,7 +77,7 @@
                 </div>
                 <div style="display:flex; gap: 10px; justify-content:center; width:100%; margin:20px">
                   <button type="submit" class="btn btn-success">Guardar</button>
-                  <button type="button" class="btn btn-danger">Cancelar</button>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                 </div>        
               </form>          
               <!-- /.card-body -->

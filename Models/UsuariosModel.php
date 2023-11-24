@@ -64,5 +64,13 @@
 
 
         }
+
+        public function selectUsuarios()
+        {
+            $sql = "SELECT p.idpersona,p.identificacion, p.nombres, p.apellidos, p.telefono, p.email_user, r.nombrerol, p.statuss 
+            FROM persona p INNER JOIN rol r ON p.rolid = r.idrol WHERE p.statuss !=0";
+            $request = $this->select_all($sql);
+            return $request;
+        }
     }
 ?>

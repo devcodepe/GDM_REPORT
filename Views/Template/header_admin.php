@@ -26,6 +26,11 @@
         justify-content:end;
           
       }
+
+      #usuariotable_filter{
+        display: flex;
+        justify-content:end;
+      }
     </style>
   </head>
   <body class="hold-transition sidebar-mini">

@@ -48,9 +48,9 @@
                         <thead>
                         <tr>
                           <th>ID</th>
+                          <th>IDENTIFICACION</th>
                           <th>NOMBRE</th>
-                          <th>APELLIDOS(s)</th>
-                          <th>EMAIL</th>
+                          <th>APELLIDOS</th>
                           <th>TELEFONO</th>
                           <th>ROL</th>
                           <th>STATUS</th>

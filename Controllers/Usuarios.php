@@ -59,6 +59,31 @@
             
             echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
         }
+
+        public function getUsuarios()
+        {
+            $arrData = $this->model->selectUsuarios();
+
+            for ($i = 0; $i < count($arrData); $i++)
+            {
+                if ($arrData[$i]['statuss'] == 1)
+                {
+                    $arrData[$i]['statuss'] = '<span class="badge badge-success">Activo</span>';
+                }
+                else
+                {
+                    $arrData[$i]['statuss'] = '<span class="badge badge-danger">Inactivo</span>';
+                }
+
+                $arrData[$i]['options'] = '<div class="text-center"> 
+                <button type="button" class="btn bg-gradient-secondary btnPermisosRol" onclick="fntPermisosRoles('.$arrdata[$i]['idpersona'].');" rl="'.$arrdata[$i]['idpersona'].'" title="Permisos"><i class="fa-regular fa-eye"></i></button>
+                <button type="button" class="btn bg-gradient-primary btnEditRol" onclick="fntEditRol('.$arrdata[$i]['idpersona'].');" rl="'.$arrdata[$i]['idpersona'].'" title="Editar"><i class="fa-solid fa-file-pen"></i></button>
+                <button type="button" class="btn bg-gradient-danger btnDelRol" onclick="fntDelRol('.$arrdata[$i]['idpersona'].');" rl="'.$arrdata[$i]['idpersona'].'" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
+                                            </div>';
+            }
+
+            echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
+        }
     }
 
     

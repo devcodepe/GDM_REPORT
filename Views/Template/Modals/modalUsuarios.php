@@ -1,5 +1,5 @@
 <div class="modal fade" id="modalFormUsuario" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header headerRegister">
         <h5 class="modal-title" id="titleModal">Nuevo Usuario</h5>
@@ -12,21 +12,26 @@
           <form id="formUsuario" name="formUsuario" class="form-horizontal">
               <input type="hidden" name="idUsuario" id="idUsuario" value="">
               <div class="form-group">
+                <label for="txtIdentification">Identificacion</label>
                 <input type="text" class="form-control" id="txtIdentification" name="txtIdentification" placeholder="Identificacion" require>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
+                  <label for="txtName">Nombres</label>
                   <input type="text" class="form-control" id="txtName" name="txtName" placeholder="Nombres" require>
                 </div>
                 <div class="form-group col-md-6">
+                  <label for="txtLastName">Nombres</label>
                   <input type="text" class="form-control" id="txtLastName" name="txtLastName" placeholder="Apellidos" require>
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
+                  <label for="txtPhone">Telefono</label>
                   <input type="text" class="form-control" id="txtPhone" name="txtPhone" placeholder="Telefono" require>
                 </div>
                 <div class="form-group col-md-6">
+                  <label for="txtEmail">Telefono</label>
                   <input type="email" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email" require>
                 </div>
               </div>
